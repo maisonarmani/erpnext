@@ -6,7 +6,7 @@ def get_data():
 	data = [
 		{
 			"label": _("Settings"),
-			"icon": "fa fa-wrench",
+			"icon": "icon-wrench",
 			"items": [
 				{
 					"type": "doctype",
@@ -19,7 +19,7 @@ def get_data():
 		},
 		{
 			"label": _("Printing"),
-			"icon": "fa fa-print",
+			"icon": "icon-print",
 			"items": [
 				{
 					"type": "doctype",
@@ -75,7 +75,7 @@ def get_data():
 		},
 		{
 			"label": _("Customize"),
-			"icon": "fa fa-glass",
+			"icon": "icon-glass",
 			"items": [
 				{
 					"type": "doctype",
@@ -92,7 +92,7 @@ def get_data():
 		},
 		{
 			"label": _("Email"),
-			"icon": "fa fa-envelope",
+			"icon": "icon-envelope",
 			"items": [
 				{
 					"type": "doctype",
@@ -109,12 +109,12 @@ def get_data():
 	]
 
 	for module, label, icon in (
-		("accounts", _("Accounts"), "fa fa-money"),
-		("stock", _("Stock"), "fa fa-truck"),
-		("selling", _("Selling"), "fa fa-tag"),
-		("buying", _("Buying"), "fa fa-shopping-cart"),
-		("hr", _("Human Resources"), "fa fa-group"),
-		("support", _("Support"), "fa fa-phone")):
+		("accounts", _("Accounts"), "icon-money"),
+		("stock", _("Stock"), "icon-truck"),
+		("selling", _("Selling"), "icon-tag"),
+		("buying", _("Buying"), "icon-shopping-cart"),
+		("hr", _("Human Resources"), "icon-group"),
+		("support", _("Support"), "icon-phone")):
 
 		add_setup_section(data, "erpnext", module, label, icon)
 

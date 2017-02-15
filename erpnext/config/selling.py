@@ -5,7 +5,7 @@ def get_data():
 	return [
 		{
 			"label": _("Sales"),
-			"icon": "fa fa-star",
+			"icon": "icon-star",
 			"items": [
 				{
 					"type": "doctype",
@@ -16,6 +16,26 @@ def get_data():
 					"type": "doctype",
 					"name": "Sales Order",
 					"description": _("Confirmed orders from Customers."),
+				},
+				{
+					"type": "doctype",
+					"name": "Call Log",
+					"description": _("Call Log")
+				},
+				{
+					"type": "doctype",
+					"name": "Daily Route Activity",
+					"description": _("Daily Route Activity."),
+				},
+				{
+					"type": "doctype",
+					"name": "Outlet Survey",
+					"description": _("Outlet Survey."),
+				},
+				{
+					"type": "doctype",
+					"name": "Performance Assessment Form",
+					"description": _("Performance Assessment Form."),
 				},
 			]
 		},
@@ -31,7 +51,7 @@ def get_data():
 					"type": "doctype",
 					"label": _("Customer Group"),
 					"name": "Customer Group",
-					"icon": "fa fa-sitemap",
+					"icon": "icon-sitemap",
 					"link": "Tree/Customer Group",
 					"description": _("Manage Customer Group Tree."),
 				},
@@ -69,7 +89,7 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Item Group",
-					"icon": "fa fa-sitemap",
+					"icon": "icon-sitemap",
 					"label": _("Item Group"),
 					"link": "Tree/Item Group",
 					"description": _("Tree of Item Groups."),
@@ -100,7 +120,7 @@ def get_data():
 					"type": "doctype",
 					"label": _("Territory"),
 					"name": "Territory",
-					"icon": "fa fa-sitemap",
+					"icon": "icon-sitemap",
 					"link": "Tree/Territory",
 					"description": _("Manage Territory Tree."),
 				},
@@ -113,29 +133,16 @@ def get_data():
 					"type": "doctype",
 					"label": _("Sales Person"),
 					"name": "Sales Person",
-					"icon": "fa fa-sitemap",
+					"icon": "icon-sitemap",
 					"link": "Tree/Sales Person",
 					"description": _("Manage Sales Person Tree."),
 				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Territory Target Variance (Item Group-Wise)",
-					"route": "query-report/Territory Target Variance Item Group-Wise",
-					"doctype": "Territory"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Sales Person Target Variance (Item Group-Wise)",
-					"route": "query-report/Sales Person Target Variance Item Group-Wise",
-					"doctype": "Sales Person",
-				},
+				
 			]
 		},
 		{
 			"label": _("Setup"),
-			"icon": "fa fa-cog",
+			"icon": "icon-cog",
 			"items": [
 				{
 					"type": "doctype",
@@ -163,114 +170,31 @@ def get_data():
 					"name": "Industry Type",
 					"description": _("Track Leads by Industry Type.")
 				},
-			]
-		},
-		{
-			"label": _("Analytics"),
-			"icon": "fa fa-table",
-			"items": [
 				{
-					"type": "page",
-					"name": "sales-analytics",
-					"label": _("Sales Analytics"),
-					"icon": "fa fa-bar-chart",
+					"type": "doctype",
+					"name": "Visit Status",
+					"description": "Visit Status",
 				},
 				{
-					"type": "page",
-					"name": "sales-funnel",
-					"label": _("Sales Funnel"),
-					"icon": "fa fa-bar-chart",
+					"type": "doctype",
+					"name": "Outlet Type",
+					"description": "Outlet Type",
 				},
 				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Customer Acquisition and Loyalty",
-					"doctype": "Customer",
-					"icon": "fa fa-bar-chart",
+					"type": "doctype",
+					"name": "Competitor",
+					"description": "Competitor",
 				},
 				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Quotation Trends",
-					"doctype": "Quotation"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Sales Order Trends",
-					"doctype": "Sales Order"
-				},
-			]
-		},
-		{
-			"label": _("Other Reports"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Lead Details",
-					"doctype": "Lead"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Customer Addresses And Contacts",
-					"doctype": "Contact"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Ordered Items To Be Delivered",
-					"doctype": "Sales Order"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Sales Person-wise Transaction Summary",
-					"doctype": "Sales Order"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Item-wise Sales History",
-					"doctype": "Item"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "BOM Search",
-					"doctype": "BOM"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Inactive Customers",
-					"doctype": "Sales Order"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Available Stock for Packing Items",
-					"doctype": "Item",
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Pending SO Items For Purchase Request",
-					"doctype": "Sales Order"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Customer Credit Balance",
-					"doctype": "Customer"
+					"type": "doctype",
+					"name": "Measurement Variable",
+					"description": "Measurement Variable",
 				},
 			]
 		},
 		{
 			"label": _("SMS"),
-			"icon": "fa fa-wrench",
+			"icon": "icon-wrench",
 			"items": [
 				{
 					"type": "doctype",

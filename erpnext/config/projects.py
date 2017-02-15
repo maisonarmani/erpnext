@@ -5,7 +5,7 @@ def get_data():
 	return [
 		{
 			"label": _("Projects"),
-			"icon": "fa fa-star",
+			"icon": "icon-star",
 			"items": [
 				{
 					"type": "doctype",
@@ -16,13 +16,6 @@ def get_data():
 					"type": "doctype",
 					"name": "Task",
 					"description": _("Project activity / task."),
-				},
-				{
-					"type": "report",
-					"route": "List/Task/Gantt",
-					"doctype": "Task",
-					"name": "Gantt Chart",
-					"description": _("Gantt chart of all tasks.")
 				},
 			]
 		},
@@ -47,26 +40,8 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Reports"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Daily Timesheet Summary",
-					"doctype": "Timesheet"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Project wise Stock Tracking",
-					"doctype": "Project"
-				},
-			]
-		},
-		{
 			"label": _("Help"),
-			"icon": "fa fa-facetime-video",
+			"icon": "icon-facetime-video",
 			"items": [
 				{
 					"type": "help",

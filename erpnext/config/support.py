@@ -3,8 +3,23 @@ from frappe import _
 
 def get_data():
 	return [
+                {
+                        "label": _("Helpdesk"),
+                        "items": [
+                                {
+                                        "type": "doctype",
+                                        "name": "Helpdesk Ticket",
+                                        "description": _("Helpdesk Ticket."),
+                                },
+                                {
+                                        "type": "doctype",
+                                        "name": "Job Card",
+                                        "description": _("Job Card."),
+                                },
+                        ]
+                },
 		{
-			"label": _("Issues"),
+			"label": _("Documents"),
 			"items": [
 				{
 					"type": "doctype",
@@ -15,6 +30,39 @@ def get_data():
 					"type": "doctype",
 					"name": "Communication",
 					"description": _("Communication log."),
+				},
+				{
+					"type": "doctype",
+					"name": "Computing Asset Inspection Checklist"
+				},
+				{
+					"type": "doctype",
+					"name": "Generator Fuel Consumption Log"
+				},
+				{
+					"type": "doctype",
+					"name": "Daily Generator Activity Log"
+				},
+				{
+					"type": "doctype",
+					"name": "Fixed Asset Inspection Checklist"
+				},
+			]
+		},
+		{
+			"label": _("Setup"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Computing Asset Type"
+				},
+				{
+					"type": "doctype",
+					"name": " Computing Asset Inspection Status"
+				},
+				{
+					"type": "doctype",
+					"name": "Fixed Asset Inspection Status"
 				},
 			]
 		},
@@ -33,22 +81,14 @@ def get_data():
 				},
 			]
 		},
-		{
-			"label": _("Reports"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "page",
-					"name": "support-analytics",
-					"label": _("Support Analytics"),
-					"icon": "fa fa-bar-chart"
-				},
-				{
-					"type": "report",
-					"name": "Minutes to First Response for Issues",
-					"doctype": "Issue",
-					"is_query_report": True
-				},
-			]
-		},
+                {
+                        "label": _("Setup"),
+                        "items": [
+                                {
+                                        "type": "doctype",
+                                        "name": "Request Type",
+                                        "description": _("Request Type."),
+                                },
+                        ]
+                },
 	]

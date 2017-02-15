@@ -5,7 +5,7 @@ def get_data():
 	return [
 		{
 			"label": _("Production"),
-			"icon": "fa fa-star",
+			"icon": "icon-star",
 			"items": [
 				{
 					"type": "doctype",
@@ -41,7 +41,7 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "BOM",
-					"icon": "fa fa-sitemap",
+					"icon": "icon-sitemap",
 					"label": _("BOM Browser"),
 					"description": _("Tree of Bill of Materials"),
 					"link": "Tree/BOM",
@@ -66,7 +66,7 @@ def get_data():
 		},
 		{
 			"label": _("Tools"),
-			"icon": "fa fa-wrench",
+			"icon": "icon-wrench",
 			"items": [
 				{
 					"type": "doctype",
@@ -86,44 +86,8 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Reports"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Open Production Orders",
-					"doctype": "Production Order"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Production Orders in Progress",
-					"doctype": "Production Order"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Issued Items Against Production Order",
-					"doctype": "Production Order"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Completed Production Orders",
-					"doctype": "Production Order"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "BOM Search",
-					"doctype": "BOM"
-				},
-			]
-		},
-		{
 			"label": _("Help"),
-			"icon": "fa fa-facetime-video",
+			"icon": "icon-facetime-video",
 			"items": [
 				{
 					"type": "help",

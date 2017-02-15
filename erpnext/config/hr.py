@@ -20,6 +20,10 @@ def get_data():
 				},
 				{
 					"type": "doctype",
+					"name": "Loan Application Form",
+				},
+				{
+					"type": "doctype",
 					"name": "Attendance",
 					"description": _("Attendance record."),
 				},
@@ -150,26 +154,15 @@ def get_data():
 		},
 
 		{
-			"label": _("Training"),
+			"label": _("Tools"),
+			"icon": "icon-wrench",
 			"items": [
-				{
-					"type": "doctype",
-					"name": "Training Event"
-				},
-				{
-					"type": "doctype",
-					"name": "Training Result"
-				},
-				{
-					"type": "doctype",
-					"name": "Training Feedback"
-				},
+
 			]
 		},
-
 		{
 			"label": _("Setup"),
-			"icon": "fa fa-cog",
+			"icon": "icon-cog",
 			"items": [
 				{
 					"type": "doctype",
@@ -196,57 +189,11 @@ def get_data():
 					"name": "Designation",
 					"description": _("Employee designation (e.g. CEO, Director etc.).")
 				},
-				{
-					"type": "doctype",
-					"name": "Daily Work Summary Settings"
-				},
-			]
-		},
-		{
-			"label": _("Reports"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Employee Leave Balance",
-					"doctype": "Leave Application"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Employee Birthday",
-					"doctype": "Employee"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Employees working on a holiday",
-					"doctype": "Employee"
-				},
-				{
-					"type": "report",
-					"name": "Employee Information",
-					"doctype": "Employee"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Monthly Salary Register",
-					"doctype": "Salary Slip"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Monthly Attendance Sheet",
-					"doctype": "Attendance"
-				},
-
 			]
 		},
 		{
 			"label": _("Help"),
-			"icon": "fa fa-facetime-video",
+			"icon": "icon-facetime-video",
 			"items": [
 				{
 					"type": "help",
