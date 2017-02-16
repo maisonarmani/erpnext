@@ -4,6 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
+from frappe import _
 from frappe.model.document import Document
 
 
@@ -12,16 +13,23 @@ class AuthoritytoLoad(Document):
         # Get the sales order under it and check to see if the authority to load flag is set
         if self.has_sales_order():
             res = frappe.get_all('Sales Order', filters={"atl": 1, "name": self.sales_order})
-            if res: frappe.throw(frappe._("Authority to load has previously been generated for this sales order"))
+            if res:
+                frappe.throw(_("Authority to load has previously been generated for this Sales order [{so}]".format(
+                    so=self.get_so_title())))
 
     def on_submit(self):
         if self.has_sales_order():
-            res = frappe.get_all('Authority to Load', filters=[["sales_order", "=", self.sales_order], ["name", "!=", self.name]])
+            # if the we have another authority to load that has been
+            # submitted and has the specified sales order on it then throw and error
+            res = frappe.get_all('Authority to Load', filters=[
+                ["sales_order", "=", self.sales_order],
+                ["name", "!=", self.name],
+                ["docstatus", "=", 1]])
             if res:
-                frappe.throw(frappe._("Authority to load has previously been generated for this sales order"))
+                frappe.throw(_("Authority to load has previously been generated for this Sales order [{so}]".format(
+                    so=self.get_so_title())))
             frappe.db.sql(
                 "update `tabSales Order` set atl=1 where name='{sales_order}'".format(sales_order=self.sales_order))
-
 
     def on_cancel(self):
         if self.has_sales_order():
@@ -38,3 +46,7 @@ class AuthoritytoLoad(Document):
         if self.sales_order:
             return True
         return False
+
+    def get_so_title(self):
+        doc = frappe.get_all('Sales Order', ["title"], ignore_permissions=True)
+        return doc.title
