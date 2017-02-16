@@ -17,6 +17,11 @@ def get_data():
 					"name": "Sales Order",
 					"description": _("Confirmed orders from Customers."),
 				},
+				{
+					"type": "doctype",
+					"name": "Authority to Load",
+					"description": _("Create a new authority to load from sales order"),
+				},
 			]
 		},
 		{

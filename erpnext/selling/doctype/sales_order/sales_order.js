@@ -47,8 +47,8 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 				if (this.frm.has_perm("submit")) {
 					// close
 					if(flt(doc.per_delivered, 2) < 100 || flt(doc.per_billed) < 100) {
-							cur_frm.add_custom_button(__('Close'), this.close_sales_order, __("Status"))
-						}
+						cur_frm.add_custom_button(__('Close'), this.close_sales_order, __("Status"))
+					}
 				}
 
 				// delivery note
@@ -76,6 +76,12 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 				if(flt(doc.per_billed)==0) {
 					cur_frm.add_custom_button(__('Payment Request'), this.make_payment_request, __("Make"));
 					cur_frm.add_custom_button(__('Payment'), cur_frm.cscript.make_payment_entry, __("Make"));
+				}
+
+
+				// authority to load
+				if(!doc.alt && allow_delivery && this.frm.has_perm("submit")) {
+					cur_frm.add_custom_button(__('Authority to Load'), this.make_authority_to_load, __("Make"));
 				}
 
 				// maintenance
@@ -139,6 +145,13 @@ erpnext.selling.SalesOrderController = erpnext.selling.SellingController.extend(
 	make_sales_invoice: function() {
 		frappe.model.open_mapped_doc({
 			method: "erpnext.selling.doctype.sales_order.sales_order.make_sales_invoice",
+			frm: cur_frm
+		})
+	},
+
+	make_authority_to_load: function() {
+		frappe.model.open_mapped_doc({
+			method: "erpnext.selling.doctype.sales_order.sales_order.make_authority_to_load",
 			frm: cur_frm
 		})
 	},
