@@ -16,7 +16,7 @@ class AuthoritytoLoad(Document):
 
     def on_submit(self):
         if self.has_sales_order():
-            res = frappe.get_all('Sales Order', filters={"name": self.sales_order})
+            res = frappe.get_all('Authority to Load', filters=[["sales_order", "=", self.sales_order], ["name", "!=", self.name]])
             if res:
                 frappe.throw(frappe._("Authority to load has previously been generated for this sales order"))
             frappe.db.sql(
