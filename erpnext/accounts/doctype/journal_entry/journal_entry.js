@@ -51,6 +51,7 @@ erpnext.accounts.JournalEntry = frappe.ui.form.Controller.extend({
 		this.load_defaults();
 		this.setup_queries();
 		this.setup_balance_formatter();
+		this.frm.get_docfield("accounts").allow_bulk_edit = 1;
 	},
 
 	onload_post_render: function() {

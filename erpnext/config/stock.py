@@ -26,36 +26,11 @@ def get_data():
 					"name": "Material Request",
 					"description": _("Requests for items."),
 				},
-			]
-		},
-		{
-			"label": _("Stock Reports"),
-			"items": [
 				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Stock Ledger",
-					"doctype": "Stock Ledger Entry",
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Stock Balance",
-					"doctype": "Stock Ledger Entry"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Stock Projected Qty",
-					"doctype": "Item",
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Stock Ageing",
-					"doctype": "Item",
-				},
-
+					"type": "doctype",
+					"name": "Store Bin Card",
+					"description": _("Store Bin Card")
+				}
 			]
 		},
 		{
@@ -79,7 +54,7 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Item Group",
-					"icon": "fa fa-sitemap",
+					"icon": "icon-sitemap",
 					"label": _("Item Group"),
 					"link": "Tree/Item Group",
 					"description": _("Tree of Item Groups."),
@@ -121,26 +96,11 @@ def get_data():
 					"name": "Installation Note",
 					"description": _("Installation record for a Serial No.")
 				},
-				{
-					"type": "report",
-					"name": "Serial No Service Contract Expiry",
-					"doctype": "Serial No"
-				},
-				{
-					"type": "report",
-					"name": "Serial No Status",
-					"doctype": "Serial No"
-				},
-				{
-					"type": "report",
-					"name": "Serial No Warranty Expiry",
-					"doctype": "Serial No"
-				},
 			]
 		},
 		{
 			"label": _("Tools"),
-			"icon": "fa fa-wrench",
+			"icon": "icon-wrench",
 			"items": [
 				{
 					"type": "doctype",
@@ -166,7 +126,7 @@ def get_data():
 		},
 		{
 			"label": _("Setup"),
-			"icon": "fa fa-cog",
+			"icon": "icon-cog",
 			"items": [
 				{
 					"type": "doctype",
@@ -197,87 +157,8 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Analytics"),
-			"icon": "fa fa-table",
-			"items": [
-				{
-					"type": "report",
-					"is_query_report": False,
-					"name": "Item-wise Price List Rate",
-					"doctype": "Item Price",
-				},
-				{
-					"type": "page",
-					"name": "stock-analytics",
-					"label": _("Stock Analytics"),
-					"icon": "fa fa-bar-chart"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Delivery Note Trends",
-					"doctype": "Delivery Note"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Purchase Receipt Trends",
-					"doctype": "Purchase Receipt"
-				},
-
-			]
-		},
-		{
-			"label": _("Reports"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Ordered Items To Be Delivered",
-					"doctype": "Delivery Note"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Purchase Order Items To Be Received",
-					"doctype": "Purchase Receipt"
-				},
-				{
-					"type": "report",
-					"name": "Item Shortage Report",
-					"route": "Report/Bin/Item Shortage Report",
-					"doctype": "Purchase Receipt"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Requested Items To Be Transferred",
-					"doctype": "Material Request"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Batch-Wise Balance History",
-					"doctype": "Batch"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Item Prices",
-					"doctype": "Price List"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Itemwise Recommended Reorder Level",
-					"doctype": "Item"
-				},
-			]
-		},
-		{
 			"label": _("Help"),
-			"icon": "fa fa-facetime-video",
+			"icon": "icon-facetime-video",
 			"items": [
 				{
 					"type": "help",

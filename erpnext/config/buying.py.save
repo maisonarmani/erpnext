@@ -26,11 +26,7 @@ def get_data():
 					"type": "doctype",
 					"name": "Purchase Order",
 					"description": _("Purchase Orders given to Suppliers."),
-				},{
-                                        "type": "doctype",
-                                        "name": "Purchase Order Status",
-                                        "description": _("Give STatus Report to a Purchase Order."),
-                                },
+				},
 			]
 		},
 		{
@@ -119,6 +115,73 @@ def get_data():
 					"description": _("Rules for applying pricing and discount.")
 				},
 
+			]
+		},
+		{
+			"label": _("Analytics"),
+			"icon": "icon-table",
+			"items": [
+				{
+					"type": "page",
+					"name": "purchase-analytics",
+					"label": _("Purchase Analytics"),
+					"icon": "icon-bar-chart",
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Supplier-Wise Sales Analytics",
+					"doctype": "Stock Ledger Entry"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Purchase Order Trends",
+					"doctype": "Purchase Order"
+				},
+			]
+		},
+		{
+			"label": _("Other Reports"),
+			"icon": "icon-list",
+			"items": [
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Items To Be Requested",
+					"doctype": "Item"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Requested Items To Be Ordered",
+					"doctype": "Material Request"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Material Requests for which Supplier Quotations are not created",
+					"doctype": "Material Request"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Item-wise Purchase History",
+					"doctype": "Item"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Supplier Addresses and Contacts",
+					"doctype": "Supplier"
+				},
+				,
+                                {
+                                        "type": "report",
+                                        "is_query_report": True,
+                                        "name": "Purchase Order Summary Report",
+                                        "doctype": "Purchase Order"
+                                }
 			]
 		},
 		{

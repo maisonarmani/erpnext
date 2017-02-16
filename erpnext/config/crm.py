@@ -4,7 +4,7 @@ def get_data():
 	return [
 		{
 			"label": _("Sales Pipeline"),
-			"icon": "fa fa-star",
+			"icon": "icon-star",
 			"items": [
 				{
 					"type": "doctype",
@@ -29,44 +29,8 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Reports"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "page",
-					"name": "sales-funnel",
-					"label": _("Sales Funnel"),
-					"icon": "fa fa-bar-chart",
-				},
-				{
-					"type": "report",
-					"name": "Minutes to First Response for Opportunity",
-					"doctype": "Opportunity",
-					"is_query_report": True
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Lead Details",
-					"doctype": "Lead"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Customer Addresses And Contacts",
-					"doctype": "Contact"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Inactive Customers",
-					"doctype": "Sales Order"
-				},
-			]
-		},
-		{
 			"label": _("Communication"),
-			"icon": "fa fa-star",
+			"icon": "icon-star",
 			"items": [
 				{
 					"type": "doctype",
@@ -77,7 +41,7 @@ def get_data():
 		},
 		{
 			"label": _("Setup"),
-			"icon": "fa fa-cog",
+			"icon": "icon-cog",
 			"items": [
 				{
 					"type": "doctype",
@@ -88,7 +52,7 @@ def get_data():
 					"type": "doctype",
 					"label": _("Customer Group"),
 					"name": "Customer Group",
-					"icon": "fa fa-sitemap",
+					"icon": "icon-sitemap",
 					"link": "Tree/Customer Group",
 					"description": _("Manage Customer Group Tree."),
 				},
@@ -96,7 +60,7 @@ def get_data():
 					"type": "doctype",
 					"label": _("Territory"),
 					"name": "Territory",
-					"icon": "fa fa-sitemap",
+					"icon": "icon-sitemap",
 					"link": "Tree/Territory",
 					"description": _("Manage Territory Tree."),
 				},
@@ -104,7 +68,7 @@ def get_data():
 					"type": "doctype",
 					"label": _("Sales Person"),
 					"name": "Sales Person",
-					"icon": "fa fa-sitemap",
+					"icon": "icon-sitemap",
 					"link": "Tree/Sales Person",
 					"description": _("Manage Sales Person Tree."),
 				},
@@ -112,7 +76,7 @@ def get_data():
 		},
 		{
 			"label": _("SMS"),
-			"icon": "fa fa-wrench",
+			"icon": "icon-wrench",
 			"items": [
 				{
 					"type": "doctype",

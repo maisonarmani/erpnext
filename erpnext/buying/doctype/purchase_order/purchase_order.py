@@ -356,3 +356,27 @@ def update_status(status, name):
 	po = frappe.get_doc("Purchase Order", name)
 	po.update_status(status)
 	po.update_delivered_qty_in_sales_order()
+
+@frappe.whitelist()
+def get_events(start, end, filters=None):
+	"""Returns events for Gantt / Calendar view rendering.
+
+	:param start: Start date-time.
+	:param end: End date-time.
+	:param filters: Filters (JSON).
+	"""
+	from frappe.desk.calendar import get_event_conditions
+	conditions = get_event_conditions("Purchase Order", filters)
+
+	data = frappe.db.sql("""select p.name, p.supplier_name, i.item_code,i.item_name, i.schedule_date
+		from `tabPurchase Order Item` i
+		join `tabPurchase Order` p on i.parent=p.name
+		where (ifnull(i.schedule_date, '0000-00-00')!= '0000-00-00') \
+				and (i.schedule_date between %(start)s and %(end)s)
+				and p.docstatus < 2
+				{conditions}
+		""".format(conditions=conditions), {
+			"start": start,
+			"end": end
+		}, as_dict=True, update={"allDay": 0})
+	return data

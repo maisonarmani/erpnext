@@ -60,7 +60,7 @@ def get_data():
 			"link": "List/Lead"
 		},
 		{
-			"module_name": "Profit and Loss Statement",
+			"module_name": "Profit and Loss Statment",
 			"_doctype": "Account",
 			"color": "#3498db",
 			"icon": "octicon octicon-repo",
@@ -79,7 +79,7 @@ def get_data():
 		{
 			"module_name": "Stock",
 			"color": "#f39c12",
-			"icon": "fa fa-truck",
+			"icon": "icon-truck",
 			"icon": "octicon octicon-package",
 			"type": "module",
 			"hidden": 1
@@ -94,7 +94,7 @@ def get_data():
 		{
 			"module_name": "Selling",
 			"color": "#1abc9c",
-			"icon": "fa fa-tag",
+			"icon": "icon-tag",
 			"icon": "octicon octicon-tag",
 			"type": "module",
 			"hidden": 1
@@ -102,7 +102,7 @@ def get_data():
 		{
 			"module_name": "Buying",
 			"color": "#c0392b",
-			"icon": "fa fa-shopping-cart",
+			"icon": "icon-shopping-cart",
 			"icon": "octicon octicon-briefcase",
 			"type": "module",
 			"hidden": 1
@@ -110,7 +110,7 @@ def get_data():
 		{
 			"module_name": "HR",
 			"color": "#2ecc71",
-			"icon": "fa fa-group",
+			"icon": "icon-group",
 			"icon": "octicon octicon-organization",
 			"label": _("Human Resources"),
 			"type": "module",
@@ -119,7 +119,7 @@ def get_data():
 		{
 			"module_name": "Manufacturing",
 			"color": "#7f8c8d",
-			"icon": "fa fa-cogs",
+			"icon": "icon-cogs",
 			"icon": "octicon octicon-tools",
 			"type": "module",
 			"hidden": 1
@@ -127,7 +127,7 @@ def get_data():
 		{
 			"module_name": "POS",
 			"color": "#589494",
-			"icon": "fa fa-th",
+			"icon": "icon-th",
 			"icon": "octicon octicon-credit-card",
 			"type": "page",
 			"link": "pos",
@@ -136,7 +136,7 @@ def get_data():
 		{
 			"module_name": "Projects",
 			"color": "#8e44ad",
-			"icon": "fa fa-puzzle-piece",
+			"icon": "icon-puzzle-piece",
 			"icon": "octicon octicon-rocket",
 			"type": "module",
 			"hidden": 1
@@ -144,7 +144,7 @@ def get_data():
 		{
 			"module_name": "Support",
 			"color": "#2c3e50",
-			"icon": "fa fa-phone",
+			"icon": "icon-phone",
 			"icon": "octicon octicon-issue-opened",
 			"type": "module",
 			"hidden": 1
@@ -231,7 +231,7 @@ def get_data():
 		{
 			"module_name": "Assessment",
 			"color": "#8a70be",
-			"icon": "fa fa-file-text-alt",
+			"icon": "icon-file-text-alt",
 			"label": _("Assessment"),
 			"link": "List/Assessment",
 			"_doctype": "Assessment",
@@ -240,7 +240,7 @@ def get_data():
 		{
 			"module_name": "Fees",
 			"color": "#83C21E",
-			"icon": "fa fa-money",
+			"icon": "icon-money",
 			"label": _("Fees"),
 			"link": "List/Fees",
 			"_doctype": "Fees",
@@ -258,7 +258,7 @@ def get_data():
 		{
 			"module_name": "Room",
 			"color": "#f22683",
-			"icon": "fa fa-map-marker",
+			"icon": "icon-map-marker",
 			"label": _("Room"),
 			"link": "List/Room",
 			"_doctype": "Room",

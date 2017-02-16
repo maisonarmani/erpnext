@@ -9,13 +9,17 @@ from frappe import _
 from frappe.desk.notifications import clear_notifications
 
 @frappe.whitelist()
+def delete_company_transaction():
+	delete_company_transactions("Graceco Limited")
+
+@frappe.whitelist()
 def delete_company_transactions(company_name):
-	frappe.only_for("System Manager")
+	#frappe.only_for("System Manager")
 	doc = frappe.get_doc("Company", company_name)
 
-	if frappe.session.user != doc.owner:
-		frappe.throw(_("Transactions can only be deleted by the creator of the Company"),
-			frappe.PermissionError)
+	#if frappe.session.user != doc.owner:
+	#	frappe.throw(_("Transactions can only be deleted by the creator of the Company"),
+	#		frappe.PermissionError)
 
 	delete_bins(company_name)
 	delete_lead_addresses(company_name)
@@ -24,17 +28,18 @@ def delete_company_transactions(company_name):
 		tabDocField where fieldtype='Link' and options='Company'"""):
 		if doctype not in ("Account", "Cost Center", "Warehouse", "Budget",
 			"Party Account", "Employee", "Sales Taxes and Charges Template",
-			"Purchase Taxes and Charges Template", "POS Profile", 'BOM','Salary Structure'):
+			"Purchase Taxes and Charges Template", "POS Profile", 'BOM'):
 				delete_for_doctype(doctype, company_name)
-
+	for doctype in frappe.db.sql_list("""select name from `tabDocType` where module='Graceco Tools' """):
+		 delete_for_doctype(doctype, company_name)
 	# Clear notification counts
 	clear_notifications()
 
 def delete_for_doctype(doctype, company_name):
 	meta = frappe.get_meta(doctype)
-	company_fieldname = meta.get("fields", {"fieldtype": "Link",
-		"options": "Company"})[0].fieldname
-
+	#company_fieldname = meta.get("fields", {"fieldtype": "Link",
+	#	"options": "Company"})[0].fieldname
+	company_fieldname =""
 	if not meta.issingle:
 		if not meta.istable:
 			# delete communication
@@ -43,12 +48,11 @@ def delete_for_doctype(doctype, company_name):
 			# delete children
 			for df in meta.get_table_fields():
 				frappe.db.sql("""delete from `tab{0}` where parent in
-					(select name from `tab{1}` where `{2}`=%s or `{2}`="" or `{2}`=NULL )""".format(df.options,
-						doctype, company_fieldname), company_name)
+					(select name from `tab{1}` ) """.format(df.options,
+						doctype))
 
 		# delete parent
-		frappe.db.sql("""delete from `tab{0}`
-			where {1}= %s or `{2}`="" or `{2}`=NULL""".format(doctype, company_fieldname), company_name)
+		frappe.db.sql("""delete from `tab{0}` """.format(doctype))
 
 		# reset series
 		naming_series = meta.get_field("naming_series")
@@ -69,11 +73,11 @@ def delete_for_doctype(doctype, company_name):
 
 def delete_bins(company_name):
 	frappe.db.sql("""delete from tabBin where warehouse in
-			(select name from tabWarehouse where company=%s)""", company_name)
+			(select name from tabWarehouse )""")
 
 def delete_lead_addresses(company_name):
 	"""Delete addresses to which leads are linked"""
-	for lead in frappe.get_all("Lead", filters={"company": company_name}):
+	for lead in frappe.get_all("Lead"):
 		frappe.db.sql("""delete from `tabAddress`
 			where lead=%s and (customer='' or customer is null) and (supplier='' or supplier is null)""", lead.name)
 
@@ -82,5 +86,5 @@ def delete_lead_addresses(company_name):
 def delete_communications(doctype, company_name, company_fieldname):
 		frappe.db.sql("""
 			DELETE FROM `tabCommunication` WHERE reference_doctype = %s AND
-			EXISTS (SELECT name FROM `tab{0}` WHERE {1} = %s AND `tabCommunication`.reference_name = name)
-			""".format(doctype, company_fieldname), (doctype, company_name))
+			EXISTS (SELECT name FROM `tab{0}` WHERE  `tabCommunication`.reference_name = name)
+			""".format(doctype), (doctype))
