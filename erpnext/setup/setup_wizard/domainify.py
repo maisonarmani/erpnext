@@ -86,7 +86,7 @@ def setup_desktop_icons(data):
 	'''set desktop icons form `data.desktop_icons`'''
 	from frappe.desk.doctype.desktop_icon.desktop_icon import set_desktop_icons
 	if data.desktop_icons:
-		set_desktop_icons(data.desktop_icons)
+		set_desktop_icons(data.desktop_icons,ignore_duplicate=True)
 
 def setup_properties(data):
 	if data.properties:

@@ -22,9 +22,9 @@ class AuthoritytoLoad(Document):
             # if the we have another authority to load that has been
             # submitted and has the specified sales order on it then throw and error
             res = frappe.get_all('Authority to Load', filters=[
-                ["sales_order", "=", self.sales_order],
                 ["name", "!=", self.name],
-                ["docstatus", "=", 1]])
+                ["sales_order", "=", self.sales_order],
+                ["docstatus", "=", 1]], fields=['name'])
             if res:
                 frappe.throw(_("Authority to load has previously been generated for this Sales order [{so}]".format(
                     so=self.get_so_title())))
@@ -43,10 +43,9 @@ class AuthoritytoLoad(Document):
         frappe.errprint("Error occurred while saving...")
 
     def has_sales_order(self):
-        if self.sales_order:
-            return True
-        return False
+        return self.sales_order != ""
 
     def get_so_title(self):
-        doc = frappe.get_all('Sales Order', ["title"], ignore_permissions=True)
-        return doc.title
+        doc = frappe.get_all('Sales Order', fields=['title'], filters=[["name", "=", self.sales_order]],
+                             ignore_permissions=True)
+        return doc[0].title

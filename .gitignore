@@ -1,5 +1,6 @@
 *.pyc
 *.py~
+*.md
 .DS_Store
 conf.py
 locale

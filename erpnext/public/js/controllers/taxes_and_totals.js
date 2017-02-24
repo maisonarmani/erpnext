@@ -588,13 +588,11 @@ erpnext.taxes_and_totals = erpnext.payments.extend({
 	calculate_paid_amount: function(){
 		var me = this;
 		var paid_amount = base_paid_amount = 0.0;
-		if(this.frm.doc.is_pos) {
-			$.each(this.frm.doc['payments'] || [], function(index, data){
-				data.base_amount = flt(data.amount * me.frm.doc.conversion_rate, precision("base_amount"));
-				paid_amount += data.amount;
-				base_paid_amount += data.base_amount;
-			})
-		}
+		$.each(this.frm.doc['payments'] || [], function(index, data){
+			data.base_amount = flt(data.amount * me.frm.doc.conversion_rate, precision("base_amount"));
+			paid_amount += data.amount;
+			base_paid_amount += data.base_amount;
+		})
 
 		this.frm.doc.paid_amount = flt(paid_amount, precision("paid_amount"));
 		this.frm.doc.base_paid_amount = flt(base_paid_amount, precision("base_paid_amount"));
