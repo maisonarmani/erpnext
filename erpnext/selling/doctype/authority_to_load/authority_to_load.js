@@ -10,13 +10,6 @@ frappe.ui.form.on('Authority to Load', {
 		if (doc.__islocal && doc.docstatus == 0) {
 			frm.cscript.sales_order_btn();
 		}
-
-		$.each(frm.fields_dict,function(i,v){
-			if(!i.includes("vehicle")){
-				frm.set_df_property(i, "read_only", 1);
-			}
-		});
-
 	}
 });
 
